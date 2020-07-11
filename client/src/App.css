@@ -1,0 +1,171 @@
+.container {
+  width: 350px;
+  position: relative;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-left: 350px;
+  margin-top: 50px;
+}
+.header {
+  width: 100%;
+  height: 200px;
+  background-image: url("head.jpg");
+  background-repeat: no-repeat; 
+  background-size: cover;
+  background-position: center;
+}
+
+.content {
+  width: 100%;
+  height: 280px;
+  overflow-y: scroll;
+  background-color:#ffe6ff;
+}
+
+.content::-webkit-scrollbar {
+    display: none;
+}
+
+.content {
+    -ms-overflow-style: none;
+}
+
+.footer {
+  background-color: #ffccff;
+  height: 80px;
+  border-top: 1px solid #ffb3ff;
+  text-align: center;
+}
+
+p.head {
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 35px;
+  color: white;
+  margin: 0;
+  margin-left: 25px;
+}
+
+p.date {
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  font-size: 15px;
+  color: #cfc9cc;
+  margin-left: 25px;
+}
+
+table {
+  border-collapse: collapse;
+  width: 90%;
+  margin-left: 25px;
+}
+
+th, td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+tr:hover {background-color:#ffccff;}
+
+.sturdy td:nth-child(1) {
+  width: 5%;
+}
+.sturdy td:nth-child(3) {
+  width: 20%;
+}
+.sturdy td:nth-child(2) {
+  width: 65%;
+} 
+
+
+input[type=text] {
+  border: none;
+  background-color: #ffccff;
+  font-size: 15px;
+}
+
+input:focus{
+        outline: none;
+}
+
+.submitButton {
+  background-color: #ffccff; /* Blue background */
+  border: none; /* Remove borders */
+  color: white; /* White text */
+  padding: 1px; /* Some padding */
+  cursor: pointer; /* Mouse pointer on hover */
+}
+
+.submitButton:focus{
+        outline: none;
+}
+
+.updateButton {
+  background-color: #ffccff; /* Blue background */
+  border: none; /* Remove borders */
+  color: white; /* White text */
+  padding: 1px; /* Some padding */
+  cursor: pointer; /* Mouse pointer on hover */
+}
+
+.updateButton:focus{
+        outline: none;
+}
+
+.cancelButton {
+  background-color: #ffccff; /* Blue background */
+  border: none; /* Remove borders */
+  color: white; /* White text */
+  padding: 1px; /* Some padding */
+  cursor: pointer; /* Mouse pointer on hover */
+}
+
+.cancelButton:focus{
+        outline: none;
+}
+
+.editButton {
+  background-color: #ffe6ff; /* Blue background */
+  border: none; /* Remove borders */
+  color: white; /* White text */
+  padding: 1px; /* Some padding */
+  cursor: pointer; /* Mouse pointer on hover */
+}
+
+.editButton:focus{
+        outline: none;
+}
+
+.deleteButton {
+  background-color: #ffe6ff; /* Blue background */
+  border: none; /* Remove borders */
+  color: white; /* White text */
+  padding: 1px; /* Some padding */
+  cursor: pointer; /* Mouse pointer on hover */
+}
+
+.deleteButton:focus{
+        outline: none;
+}
+
+.completeButton {
+  background-color: #ffe6ff; /* Blue background */
+  border: none; /* Remove borders */
+  color: white; /* White text */
+  padding: 1px; /* Some padding */
+  cursor: pointer; /* Mouse pointer on hover */
+}
+
+.completeButton:focus{
+        outline: none;
+}
+
+.incompleteButton {
+  background-color: #ffe6ff; /* Blue background */
+  border: none; /* Remove borders */
+  color: white; /* White text */
+  padding: 1px; /* Some padding */
+  cursor: pointer; /* Mouse pointer on hover */
+}
+
+.incompleteButton:focus{
+        outline: none;
+}
