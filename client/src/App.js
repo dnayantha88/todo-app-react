@@ -24,28 +24,28 @@ class App extends Component {
   
   async componentDidMount() {
     const response = await fetch('/api/user');
-	const json = await response.json();
-	this.setState({ persons: json });
+	  const json = await response.json();
+	  this.setState({ persons: json });
 	
-	const d = new Date();
-	const monthNames = ["January", "February", "March", "April", "May", "June",
-	"July", "August", "September", "October", "November", "December"
-	];
-	var date = d.getDate(); //Current Date
+    const d = new Date();
+    const monthNames = ["January", "February", "March", "April", "May", "June",
+              "July", "August", "September", "October", "November", "December"
+              ];
+    var date = d.getDate(); //Current Date
     var month = monthNames[d.getMonth()] //Current Month
     var year = d.getFullYear(); //Current Year
 	
-	this.setState({
-      //Setting the value of the date time
-      date:
+    this.setState({
+        //Setting the value of the date time
+        date:
          month + ' ' + + date + ', ' + year,
     });
   }
   
   async getProducts() {
     const response = await fetch('/api/user');
-	const json = await response.json();
-	this.setState({ persons: json });
+    const json = await response.json();
+    this.setState({ persons: json });
   }
   
   
@@ -60,8 +60,8 @@ class App extends Component {
     });
     const body = await response.text();
     this.setState({ responseToPost: body });
-	this.getProducts();
-	this.setState({ post: '' });
+    this.getProducts();
+    this.setState({ post: '' });
   };
   
   onClick = async e => {
@@ -75,7 +75,7 @@ class App extends Component {
     });
     const body = await response.text();
     this.setState({ responseToPost: body });
-	this.getProducts();
+	  this.getProducts();
 	};
 	
 	onEdit = async e => {
@@ -89,13 +89,13 @@ class App extends Component {
       },
       body: JSON.stringify({ id: e.currentTarget.value }),
     });
-	const json = await response.json();
-	this.setState({ personAge: json });
-	this.state.personAge.map(personage =>  this.setState({ personAge: personage.todo }));
-	this.setState({ editing: true });
+    const json = await response.json();
+    this.setState({ personAge: json });
+    this.state.personAge.map(personage =>  this.setState({ personAge: personage.todo }));
+    this.setState({ editing: true });
 	}
 	
-	 handleUpdate = async e => {
+	handleUpdate = async e => {
     e.preventDefault();
     const response = await fetch('/api/update', {
       method: 'POST',
@@ -106,11 +106,11 @@ class App extends Component {
     });
     const body = await response.text();
     this.setState({ responseToPost: body });
-	this.getProducts();
-	this.setState({ post: '',personAge: '' ,editing: false});
+    this.getProducts();
+    this.setState({ post: '',personAge: '' ,editing: false});
   };
   
-    onDone = async e => {
+  onDone = async e => {
     e.preventDefault();
     const response = await fetch('/api/done', {
       method: 'POST',
@@ -121,10 +121,10 @@ class App extends Component {
     });
     const body = await response.text();
     this.setState({ responseToPost: body });
-	this.getProducts();
+	  this.getProducts();
 	};
   
-      onUnDone = async e => {
+  onUnDone = async e => {
     e.preventDefault();
     const response = await fetch('/api/undone', {
       method: 'POST',
@@ -135,23 +135,20 @@ class App extends Component {
     });
     const body = await response.text();
     this.setState({ responseToPost: body });
-	this.getProducts();
+	  this.getProducts();
 	};
   
 render() {
 	const editing = this.state.editing;
-    return (
+  return (
 	
 	<div class="container">
-	
-	
-      <div class="header">
-	  <div>
-	  <FontAwesomeIcon icon={faBars} size="1x" style={{ color: '#cfc9cc', margin: '25px'}}/>
-			
-		</div>
-		<p class="head">My To-Dos</p>
-			
+	  <div class="header">
+	    <div>
+      <FontAwesomeIcon icon={faBars} size="1x" style={{ color: '#cfc9cc', margin: '25px'}}/>
+      </div>
+
+      <p class="head">My To-Dos</p>
 			<p class="date">{this.state.date}</p>
 			
 		</div>
@@ -159,66 +156,63 @@ render() {
 		<div class="content">
 		<br/>
        <table class="sturdy">
-	   
-		<tbody>
-        { this.state.persons.map(person => 
+		    <tbody>
+          { this.state.persons.map(person => 
           <tr key={person.id}>
-		  <td>
-		   {
-					  person.complete ? (
-					  <button class="completeButton" value={person.id} onClick={this.onUnDone}><span><FontAwesomeIcon icon={faCheckCircle} size="lg" style={{ color: '#33cc33'}}/></span></button>
-					  ) : (
-					  <button class="incompleteButton" value={person.id} onClick={this.onDone}><span><FontAwesomeIcon icon={faCheckCircleReg} size="lg" style={{ color: '#33cc33'}}/></span></button>
-					  )
-				  }
-		  </td>
+            <td>
+            {
+              person.complete ? (
+              <button class="completeButton" value={person.id} onClick={this.onUnDone}><span><FontAwesomeIcon icon={faCheckCircle} size="lg" style={{ color: '#33cc33'}}/></span></button>
+              ) : (
+              <button class="incompleteButton" value={person.id} onClick={this.onDone}><span><FontAwesomeIcon icon={faCheckCircleReg} size="lg" style={{ color: '#33cc33'}}/></span></button>
+              )
+            }
+            </td>
             <td>{person.todo}</td>
             <td>
-			 <button class="editButton" value={person.id} onClick={this.onEdit}><FontAwesomeIcon icon={faEdit} size="lg" style={{ color: '#cc66ff'}}/></button>
+              <button class="editButton" value={person.id} onClick={this.onEdit}><FontAwesomeIcon icon={faEdit} size="lg" style={{ color: '#cc66ff'}}/></button>
               <button class="deleteButton" value={person.id} onClick={this.onClick}><FontAwesomeIcon icon={faTrashAlt} size="lg" style={{ color: '#ff0066'}}/></button>
-				 
-			  </td>
-            </tr>
+            </td>
+        </tr>
           )}
 		  </tbody>
-        </table>
-      </div> 
+     </table>
+    </div> 
 		
-     <div class="footer"> 
-	<br/>
+    <div class="footer"> 
+	  <br/>
 		{ 
-            editing  ? (
-			<div>
+      editing  ? (
+			  <div>
 			
         <form onSubmit={this.handleUpdate}>
           
           <input
             type="text"
-           value={this.state.personAge}
+            value={this.state.personAge}
             onChange={e => this.setState({ personAge: e.target.value })}
           />
           <button class="updateButton" type="submit"><FontAwesomeIcon icon={faSyncAlt} size="2x" style={{ color: '#cc00cc'}} transform="right-0.5 grow-2.5"/></button>
-		  <button class="cancelButton" onClick={() => this.setState({ editing: false})}><FontAwesomeIcon icon={faTimesCircle} size="2x" style={{ color: '#cc00cc'}} transform="right-12 grow-3"/></button>
+		      <button class="cancelButton" onClick={() => this.setState({ editing: false})}><FontAwesomeIcon icon={faTimesCircle} size="2x" style={{ color: '#cc00cc'}} transform="right-12 grow-3"/></button>
         </form>
         </div>	
 			) : (
-			<div>
+			  <div>
 			
         <form onSubmit={this.handleSubmit}>
           
           <input
-            type="text"
-			placeholder="Add new todo..."
-            value={this.state.post}
-            onChange={e => this.setState({ post: e.target.value })}
+          type="text"
+			    placeholder="Add new todo..."
+          value={this.state.post}
+          onChange={e => this.setState({ post: e.target.value })}
           required/>
           <button class="submitButton" type="submit"><FontAwesomeIcon icon={faPlusCircle} size="3x" style={{ color: '#cc00cc'}} transform="right-12"/></button>
         </form>
         </div>
 			)
-			}
+		}
 	  </div>
-	  
 	  </div>
     );
   }
