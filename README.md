@@ -7,7 +7,7 @@
 - [x] Delete todos
 - [x] Mark as complete
 
-###### How to start?
+### How to start?
 
 1. npm install
 2. nodemon server.js
